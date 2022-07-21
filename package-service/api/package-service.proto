@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package ancore09.package_manager_backend.package_service;
+
+//import "google/api/annotations.proto";
+//import "validate/validate.proto";
+
+option go_package = "./pkg/package-service;package_service";
+
+message Package {
+  uint64 id  = 1;
+  string name = 2;
+}
+
+message GetPackageByNameRequest {
+  string name = 1;
+}
+
+message GetPackageByNameResponse {
+  Package package = 1;
+}
+
+service PackageService {
+  rpc GetPackageByName (GetPackageByNameRequest) returns (GetPackageByNameResponse);
+}
