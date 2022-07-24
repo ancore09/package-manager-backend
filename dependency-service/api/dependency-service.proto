@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package ancore09.package_manager_backend.dependency_service;
+
+import "google/api/annotations.proto";
+import "validate/validate.proto";
+
+option go_package = "./pkg/dependency-service;dependency_service";
+
+//message Package {
+//  uint64 id  = 1;
+//  repeated uint64 deps_id = 2;
+//}
+
+message GetPackageDepsRequest {
+  uint64 id = 1;
+}
+
+message GetPackageDepsResponse {
+  repeated uint64 deps_id = 1;
+}
+
+service PackageService {
+  rpc GetPackageDeps(GetPackageDepsRequest) returns (GetPackageDepsResponse);
+}
