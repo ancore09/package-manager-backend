@@ -19,6 +19,9 @@ const _ = grpc.SupportPackageIsVersion7
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type PackageServiceClient interface {
 	GetPackageByName(ctx context.Context, in *GetPackageByNameRequest, opts ...grpc.CallOption) (*GetPackageByNameResponse, error)
+	GetPackages(ctx context.Context, in *GetPackagesRequest, opts ...grpc.CallOption) (*GetPackagesResponse, error)
+	CreatePackage(ctx context.Context, in *CreatePackageRequest, opts ...grpc.CallOption) (*CreatePackageResponse, error)
+	UpdatePackage(ctx context.Context, in *UpdatePackageRequest, opts ...grpc.CallOption) (*UpdatePackageResponse, error)
 }
 
 type packageServiceClient struct {
@@ -38,11 +41,41 @@ func (c *packageServiceClient) GetPackageByName(ctx context.Context, in *GetPack
 	return out, nil
 }
 
+func (c *packageServiceClient) GetPackages(ctx context.Context, in *GetPackagesRequest, opts ...grpc.CallOption) (*GetPackagesResponse, error) {
+	out := new(GetPackagesResponse)
+	err := c.cc.Invoke(ctx, "/ancore09.package_manager_backend.package_service.PackageService/GetPackages", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *packageServiceClient) CreatePackage(ctx context.Context, in *CreatePackageRequest, opts ...grpc.CallOption) (*CreatePackageResponse, error) {
+	out := new(CreatePackageResponse)
+	err := c.cc.Invoke(ctx, "/ancore09.package_manager_backend.package_service.PackageService/CreatePackage", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *packageServiceClient) UpdatePackage(ctx context.Context, in *UpdatePackageRequest, opts ...grpc.CallOption) (*UpdatePackageResponse, error) {
+	out := new(UpdatePackageResponse)
+	err := c.cc.Invoke(ctx, "/ancore09.package_manager_backend.package_service.PackageService/UpdatePackage", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // PackageServiceServer is the server API for PackageService service.
 // All implementations must embed UnimplementedPackageServiceServer
 // for forward compatibility
 type PackageServiceServer interface {
 	GetPackageByName(context.Context, *GetPackageByNameRequest) (*GetPackageByNameResponse, error)
+	GetPackages(context.Context, *GetPackagesRequest) (*GetPackagesResponse, error)
+	CreatePackage(context.Context, *CreatePackageRequest) (*CreatePackageResponse, error)
+	UpdatePackage(context.Context, *UpdatePackageRequest) (*UpdatePackageResponse, error)
 	mustEmbedUnimplementedPackageServiceServer()
 }
 
@@ -52,6 +85,15 @@ type UnimplementedPackageServiceServer struct {
 
 func (UnimplementedPackageServiceServer) GetPackageByName(context.Context, *GetPackageByNameRequest) (*GetPackageByNameResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetPackageByName not implemented")
+}
+func (UnimplementedPackageServiceServer) GetPackages(context.Context, *GetPackagesRequest) (*GetPackagesResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetPackages not implemented")
+}
+func (UnimplementedPackageServiceServer) CreatePackage(context.Context, *CreatePackageRequest) (*CreatePackageResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CreatePackage not implemented")
+}
+func (UnimplementedPackageServiceServer) UpdatePackage(context.Context, *UpdatePackageRequest) (*UpdatePackageResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdatePackage not implemented")
 }
 func (UnimplementedPackageServiceServer) mustEmbedUnimplementedPackageServiceServer() {}
 
@@ -84,6 +126,60 @@ func _PackageService_GetPackageByName_Handler(srv interface{}, ctx context.Conte
 	return interceptor(ctx, in, info, handler)
 }
 
+func _PackageService_GetPackages_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPackagesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PackageServiceServer).GetPackages(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/ancore09.package_manager_backend.package_service.PackageService/GetPackages",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PackageServiceServer).GetPackages(ctx, req.(*GetPackagesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PackageService_CreatePackage_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreatePackageRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PackageServiceServer).CreatePackage(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/ancore09.package_manager_backend.package_service.PackageService/CreatePackage",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PackageServiceServer).CreatePackage(ctx, req.(*CreatePackageRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PackageService_UpdatePackage_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdatePackageRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PackageServiceServer).UpdatePackage(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/ancore09.package_manager_backend.package_service.PackageService/UpdatePackage",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PackageServiceServer).UpdatePackage(ctx, req.(*UpdatePackageRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // PackageService_ServiceDesc is the grpc.ServiceDesc for PackageService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -94,6 +190,18 @@ var PackageService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetPackageByName",
 			Handler:    _PackageService_GetPackageByName_Handler,
+		},
+		{
+			MethodName: "GetPackages",
+			Handler:    _PackageService_GetPackages_Handler,
+		},
+		{
+			MethodName: "CreatePackage",
+			Handler:    _PackageService_CreatePackage_Handler,
+		},
+		{
+			MethodName: "UpdatePackage",
+			Handler:    _PackageService_UpdatePackage_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

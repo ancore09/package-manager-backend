@@ -21,6 +21,8 @@ var packs = model.Packages{
 	},
 }
 
+var id uint64 = 4
+
 type Repository struct {
 }
 
@@ -38,4 +40,16 @@ func (r *Repository) GetPackageByName(ctx context.Context, name string) (*model.
 
 func (r *Repository) GetAllPackages(ctx context.Context) ([]*model.Package, error) {
 	return packs, nil
+}
+
+func (r *Repository) CreatePackage(ctx context.Context, name string) (*model.Package, error) {
+	pack := model.Package{
+		Id:   id,
+		Name: name,
+	}
+
+	id += 1
+
+	packs = append(packs, &pack)
+	return &pack, nil
 }

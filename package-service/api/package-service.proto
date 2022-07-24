@@ -2,8 +2,8 @@ syntax = "proto3";
 
 package ancore09.package_manager_backend.package_service;
 
-//import "google/api/annotations.proto";
-//import "validate/validate.proto";
+import "google/api/annotations.proto";
+import "validate/validate.proto";
 
 option go_package = "./pkg/package-service;package_service";
 
@@ -20,6 +20,33 @@ message GetPackageByNameResponse {
   Package package = 1;
 }
 
+message GetPackagesRequest {
+
+}
+
+message GetPackagesResponse {
+  repeated Package package = 1;
+}
+
+message CreatePackageRequest {
+  string name = 1;
+}
+
+message CreatePackageResponse {
+  Package package = 1;
+}
+
+message UpdatePackageRequest {
+  Package package = 1;
+}
+
+message UpdatePackageResponse {
+  Package package = 1;
+}
+
 service PackageService {
   rpc GetPackageByName (GetPackageByNameRequest) returns (GetPackageByNameResponse);
+  rpc GetPackages (GetPackagesRequest) returns (GetPackagesResponse);
+  rpc CreatePackage (CreatePackageRequest) returns (CreatePackageResponse);
+  rpc UpdatePackage (UpdatePackageRequest) returns (UpdatePackageResponse);
 }
