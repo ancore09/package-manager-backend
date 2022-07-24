@@ -5,6 +5,8 @@ import (
 	"fmt"
 	"github.com/ancore09/dependency-service/internal/app"
 	"github.com/ancore09/dependency-service/internal/config"
+	"github.com/ancore09/dependency-service/internal/service"
+	"github.com/ancore09/dependency-service/internal/service/repository"
 	dependency_service "github.com/ancore09/dependency-service/pkg/dependency-service"
 	"github.com/rs/zerolog/log"
 	"google.golang.org/grpc"
@@ -54,8 +56,10 @@ func (s *GRPCServer) Start(cfg *config.Config) error {
 			grpcrecovery.UnaryServerInterceptor(),
 		)),
 	)
+	repo := repository.New()
+	depService := service.NewDependencyService(repo)
 
-	dependency_service.RegisterPackageServiceServer(grpcServer, app.Implementation{})
+	dependency_service.RegisterPackageServiceServer(grpcServer, app.NewDependencyService(depService))
 
 	go func() {
 		log.Info().Msgf("GRPC Server is listening on: %s", grpcAddr)

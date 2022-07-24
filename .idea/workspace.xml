@@ -4,26 +4,17 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3e5f86b6-77bf-4b33-b9e6-5b26cfe02403" name="Changes" comment="initial commit (working microservice)">
-      <change afterPath="$PROJECT_DIR$/package-service/example/create-package.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package-service/example/get-packages.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package-service/internal/app/create_package.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package-service/internal/app/get_packages.go" afterDir="false" />
+    <list default="true" id="3e5f86b6-77bf-4b33-b9e6-5b26cfe02403" name="Changes" comment="added dependency service">
+      <change afterPath="$PROJECT_DIR$/dependency-service/internal/app/get_deps_for_package.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dependency-service/internal/service/model/models.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dependency-service/internal/service/repository/repository.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dependency-service/internal/service/service.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-service/api/package-service.proto" beforeDir="false" afterPath="$PROJECT_DIR$/package-service/api/package-service.proto" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-service/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/package-service/config.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-service/example/get-package-by-name.sh" beforeDir="false" afterPath="$PROJECT_DIR$/package-service/example/get-package-by-name.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-service/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/package-service/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-service/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/package-service/go.sum" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-service/internal/service/repository/repository.go" beforeDir="false" afterPath="$PROJECT_DIR$/package-service/internal/service/repository/repository.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-service/internal/service/service.go" beforeDir="false" afterPath="$PROJECT_DIR$/package-service/internal/service/service.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-service/pkg/package-service/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/package-service/pkg/package-service/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-service/pkg/package-service/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/package-service/pkg/package-service/go.sum" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-service/pkg/package-service/package-service.pb.go" beforeDir="false" afterPath="$PROJECT_DIR$/package-service/pkg/package-service/package-service.pb.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-service/pkg/package-service/package-service.pb.gw.go" beforeDir="false" afterPath="$PROJECT_DIR$/package-service/pkg/package-service/package-service.pb.gw.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-service/pkg/package-service/package-service.pb.validate.go" beforeDir="false" afterPath="$PROJECT_DIR$/package-service/pkg/package-service/package-service.pb.validate.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-service/pkg/package-service/package-service_grpc.pb.go" beforeDir="false" afterPath="$PROJECT_DIR$/package-service/pkg/package-service/package-service_grpc.pb.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-service/swagger/api/package-service.swagger.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-service/swagger/api/package-service.swagger.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dependency-service/example/get-packages.sh" beforeDir="false" afterPath="$PROJECT_DIR$/dependency-service/example/get-package-deps.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dependency-service/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/dependency-service/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dependency-service/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/dependency-service/go.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dependency-service/internal/app/api.go" beforeDir="false" afterPath="$PROJECT_DIR$/dependency-service/internal/app/api.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dependency-service/internal/server/server.go" beforeDir="false" afterPath="$PROJECT_DIR$/dependency-service/internal/server/server.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -146,7 +137,9 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="initial commint (working microservice)" />
     <MESSAGE value="initial commit (working microservice)" />
-    <option name="LAST_COMMIT_MESSAGE" value="initial commit (working microservice)" />
+    <MESSAGE value="added grpc methods" />
+    <MESSAGE value="added dependency service" />
+    <option name="LAST_COMMIT_MESSAGE" value="added dependency service" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>

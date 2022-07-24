@@ -6,7 +6,7 @@ GRPC_METHOD="ancore09.package_manager_backend.dependency_service.PackageService/
 payload=$(
   cat <<EOF
 {
-  "id": 1
+  "id": 3
 }
 EOF
 )
