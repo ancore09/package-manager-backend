@@ -3,11 +3,11 @@ package server
 import (
 	"context"
 	"fmt"
+	package_service "github.com/ancore09/package-manager-backend/package-service/pkg/package-service"
 	"github.com/ancore09/package-service/internal/app"
 	"github.com/ancore09/package-service/internal/config"
 	service2 "github.com/ancore09/package-service/internal/service"
 	"github.com/ancore09/package-service/internal/service/repository"
-	package_service "github.com/ancore09/package-service/pkg/package-service"
 	"github.com/rs/zerolog/log"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/keepalive"

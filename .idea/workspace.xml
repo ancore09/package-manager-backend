@@ -4,9 +4,31 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3e5f86b6-77bf-4b33-b9e6-5b26cfe02403" name="Changes" comment="Getting Package Dependencies implementation">
+    <list default="true" id="3e5f86b6-77bf-4b33-b9e6-5b26cfe02403" name="Changes" comment="fix">
+      <change afterPath="$PROJECT_DIR$/dependency-service/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dependency-service/cmd/grpc-server/main.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/package-service/Dockerfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dependency-service/cmd/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/dependency-service/cmd/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dependency-service/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/dependency-service/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dependency-service/buf.gen.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/dependency-service/buf.gen.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dependency-service/cmd/main.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dependency-service/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/dependency-service/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dependency-service/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/dependency-service/go.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-service/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/package-service/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-service/buf.gen.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/package-service/buf.gen.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-service/cmd/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/package-service/cmd/grpc-server/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-service/example/get-package-by-name.sh" beforeDir="false" afterPath="$PROJECT_DIR$/package-service/example/get-package-by-name.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-service/example/get-packages.sh" beforeDir="false" afterPath="$PROJECT_DIR$/package-service/example/get-packages.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-service/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/package-service/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-service/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/package-service/go.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-service/internal/app/api.go" beforeDir="false" afterPath="$PROJECT_DIR$/package-service/internal/app/api.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-service/internal/app/create_package.go" beforeDir="false" afterPath="$PROJECT_DIR$/package-service/internal/app/create_package.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-service/internal/app/get_package_by_name.go" beforeDir="false" afterPath="$PROJECT_DIR$/package-service/internal/app/get_package_by_name.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-service/internal/app/get_packages.go" beforeDir="false" afterPath="$PROJECT_DIR$/package-service/internal/app/get_packages.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-service/internal/server/server.go" beforeDir="false" afterPath="$PROJECT_DIR$/package-service/internal/server/server.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-service/pkg/package-service/go.mod" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-service/pkg/package-service/go.sum" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,17 +67,20 @@
     "RunOnceActivity.go.watchers.conflict.with.on.save.actions.check.performed": "true",
     "WebServerToolWindowFactoryState": "false",
     "go.import.settings.migrated": "true",
-    "last_opened_file_path": "/Users/ancored/GolandProjects/package-manager-backend/package-service/example"
+    "last_opened_file_path": "/Users/ancored/GolandProjects/package-manager-backend/dependency-service"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/dependency-service" />
       <recent name="$PROJECT_DIR$/package-service/example" />
       <recent name="$PROJECT_DIR$/package-service" />
       <recent name="$PROJECT_DIR$/package-service/internal" />
       <recent name="$PROJECT_DIR$" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/package-service/cmd/grpc-server" />
+      <recent name="$PROJECT_DIR$/dependency-service/cmd/grpc-server" />
       <recent name="$PROJECT_DIR$/package-service/pkg/package-service" />
       <recent name="$PROJECT_DIR$/package-service" />
     </key>
@@ -132,7 +157,8 @@
     <MESSAGE value="added grpc methods" />
     <MESSAGE value="added dependency service" />
     <MESSAGE value="Getting Package Dependencies implementation" />
-    <option name="LAST_COMMIT_MESSAGE" value="Getting Package Dependencies implementation" />
+    <MESSAGE value="fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>

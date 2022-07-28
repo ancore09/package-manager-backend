@@ -1,8 +1,8 @@
 package app
 
 import (
+	package_service "github.com/ancore09/package-manager-backend/package-service/pkg/package-service"
 	"github.com/ancore09/package-service/internal/service"
-	package_service "github.com/ancore09/package-service/pkg/package-service"
 )
 
 type Implementation struct {

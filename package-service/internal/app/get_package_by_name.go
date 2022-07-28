@@ -2,8 +2,8 @@ package app
 
 import (
 	"context"
+	package_service "github.com/ancore09/package-manager-backend/package-service/pkg/package-service"
 	"github.com/ancore09/package-service/internal/service/model"
-	package_service "github.com/ancore09/package-service/pkg/package-service"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 )
