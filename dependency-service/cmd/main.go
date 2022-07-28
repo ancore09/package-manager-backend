@@ -11,5 +11,16 @@ func main() {
 	config.ReadConfigYML("config.yml")
 	cfg := config.GetConfigInstance()
 
+	//packageServiceConn, err := grpc.DialContext(
+	//	context.Background(),
+	//	"localhost:6002",
+	//	grpc.WithInsecure())
+	//
+	//if err != nil {
+	//	log.Error().Err(err).Msg("failed to create client")
+	//}
+
+	//_ = package_service.NewPackageServiceClient(packageServiceConn)
+
 	server.Start(&cfg)
 }

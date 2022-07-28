@@ -4,17 +4,9 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3e5f86b6-77bf-4b33-b9e6-5b26cfe02403" name="Changes" comment="added dependency service">
-      <change afterPath="$PROJECT_DIR$/dependency-service/internal/app/get_deps_for_package.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dependency-service/internal/service/model/models.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dependency-service/internal/service/repository/repository.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dependency-service/internal/service/service.go" afterDir="false" />
+    <list default="true" id="3e5f86b6-77bf-4b33-b9e6-5b26cfe02403" name="Changes" comment="Getting Package Dependencies implementation">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dependency-service/example/get-packages.sh" beforeDir="false" afterPath="$PROJECT_DIR$/dependency-service/example/get-package-deps.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dependency-service/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/dependency-service/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dependency-service/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/dependency-service/go.sum" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dependency-service/internal/app/api.go" beforeDir="false" afterPath="$PROJECT_DIR$/dependency-service/internal/app/api.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dependency-service/internal/server/server.go" beforeDir="false" afterPath="$PROJECT_DIR$/dependency-service/internal/server/server.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dependency-service/cmd/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/dependency-service/cmd/main.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -139,7 +131,8 @@
     <MESSAGE value="initial commit (working microservice)" />
     <MESSAGE value="added grpc methods" />
     <MESSAGE value="added dependency service" />
-    <option name="LAST_COMMIT_MESSAGE" value="added dependency service" />
+    <MESSAGE value="Getting Package Dependencies implementation" />
+    <option name="LAST_COMMIT_MESSAGE" value="Getting Package Dependencies implementation" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>

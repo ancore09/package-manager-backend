@@ -1,4 +1,4 @@
-module github.com/ancore09/package-service/pkg/package-service
+module github.com/ancore09/package-manager-backend/package-service/pkg/package-service
 
 go 1.18
 
