@@ -4,6 +4,7 @@ go 1.18
 
 require (
 	github.com/ancore09/dependency-service/pkg/dependency-service v0.0.0-00010101000000-000000000000
+	github.com/ancore09/package-manager-backend/package-service/pkg/package-service v0.0.0-20220730170021-d6c781578bc4
 	github.com/dgraph-io/dgo/v200 v200.0.0-20210401091508-95bfd74de60e
 	github.com/grpc-ecosystem/go-grpc-middleware v1.3.0
 	github.com/rs/zerolog v1.27.0
@@ -12,7 +13,6 @@ require (
 )
 
 require (
-	github.com/ancore09/package-manager-backend/package-service/pkg/package-service v0.0.0-20220728011339-8d51aa283b90 // indirect
 	github.com/envoyproxy/protoc-gen-validate v0.6.7 // indirect
 	github.com/gogo/protobuf v1.3.2 // indirect
 	github.com/golang/protobuf v1.5.2 // indirect

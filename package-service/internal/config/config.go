@@ -2,6 +2,7 @@ package config
 
 import (
 	"os"
+	"time"
 
 	"gopkg.in/yaml.v3"
 )
@@ -56,10 +57,40 @@ type Project struct {
 
 // Config - contains all configuration parameters in config package.
 type Config struct {
-	Project Project `yaml:"project"`
-	Grpc    Grpc    `yaml:"grpc"`
-	Gateway Gateway `yaml:"gateway"`
-	Swagger Swagger `yaml:"swagger"`
+	Project             Project `yaml:"project"`
+	Grpc                Grpc    `yaml:"grpc"`
+	Gateway             Gateway `yaml:"gateway"`
+	Swagger             Swagger `yaml:"swagger"`
+	CategoryServiceAddr string  `yaml:"categoryServiceAddr"`
+	DB                  DB      `yaml:"db"`
+}
+
+func (c Config) GetDSN() string {
+	return c.DB.DSN
+}
+
+func (c Config) GetMaxConns() int {
+	return c.DB.MaxOpenConns
+}
+
+func (c Config) GetMaxIdleConns() int {
+	return c.DB.MaxIdleConns
+}
+
+func (c Config) GetConnMaxIdleTime() time.Duration {
+	return c.DB.ConnMaxIdleTime
+}
+
+func (c Config) GetConnMaxLifeTime() time.Duration {
+	return c.DB.ConnMaxLifeTime
+}
+
+type DB struct {
+	DSN             string        `yaml:"DSN"`
+	MaxOpenConns    int           `yaml:"maxOpenConns"`
+	MaxIdleConns    int           `yaml:"MaxIdleConns"`
+	ConnMaxIdleTime time.Duration `yaml:"connMaxIdleTime"`
+	ConnMaxLifeTime time.Duration `yaml:"connMaxLifeTime"`
 }
 
 // ReadConfigYML - read configurations from file and init instance Config.

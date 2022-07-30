@@ -27,7 +27,7 @@ deps:
 
 .PHONY: run
 run:
-	go run cmd/main.go
+	go run cmd/grpc-server/main.go
 
 .PHONY: build
 build: generate .build

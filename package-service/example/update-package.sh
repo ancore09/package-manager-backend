@@ -1,11 +1,15 @@
 #!/bin/sh
 
 GRPC_HOST="localhost:7002"
-GRPC_METHOD="ancore09.package_manager_backend.package_service.PackageService/GetPackages"
+GRPC_METHOD="ancore09.package_manager_backend.package_service.PackageService/UpdatePackage"
 
 payload=$(
   cat <<EOF
 {
+  "package": {
+    "id": "1",
+    "name": "lib1"
+  }
 }
 EOF
 )

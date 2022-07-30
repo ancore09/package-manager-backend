@@ -22,3 +22,10 @@ swagger:
   host: 0.0.0.0
   port: 7001
   filepath: "swagger/api/dependency-service.swagger.json"
+
+db:
+  DSN: "postgres://user:password@localhost:5432/package-db"
+  maxOpenConns: 5
+  maxIdleConns: 5
+  connMaxIdleTime: 5m
+  connMaxLifeTime: 5m

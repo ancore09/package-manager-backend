@@ -6,7 +6,7 @@ GRPC_METHOD="ancore09.package_manager_backend.package_service.PackageService/Cre
 payload=$(
   cat <<EOF
 {
-  "name": "libLib"
+  "name": "lib4"
 }
 EOF
 )

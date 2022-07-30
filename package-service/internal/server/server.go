@@ -6,6 +6,7 @@ import (
 	package_service "github.com/ancore09/package-manager-backend/package-service/pkg/package-service"
 	"github.com/ancore09/package-service/internal/app"
 	"github.com/ancore09/package-service/internal/config"
+	"github.com/ancore09/package-service/internal/pkg/db"
 	service2 "github.com/ancore09/package-service/internal/service"
 	"github.com/ancore09/package-service/internal/service/repository"
 	"github.com/rs/zerolog/log"
@@ -57,7 +58,13 @@ func (s *GRPCServer) Start(cfg *config.Config) error {
 		)),
 	)
 
-	repo := repository.New()
+	conn, err := db.ConnectDb(cfg)
+
+	if err != nil {
+		log.Fatal().Err(err).Msg("Failed to connect to db")
+	}
+
+	repo := repository.New(conn)
 	service := service2.NewPackageService(repo)
 	package_service.RegisterPackageServiceServer(grpcServer, app.NewPackageService(service))
 
