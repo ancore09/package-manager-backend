@@ -695,3 +695,141 @@ var _ interface {
 	Cause() error
 	ErrorName() string
 } = UpdatePackageResponseValidationError{}
+
+// Validate checks the field values on DeletePackageRequest with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, an error is returned.
+func (m *DeletePackageRequest) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	// no validation rules for Id
+
+	return nil
+}
+
+// DeletePackageRequestValidationError is the validation error returned by
+// DeletePackageRequest.Validate if the designated constraints aren't met.
+type DeletePackageRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e DeletePackageRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e DeletePackageRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e DeletePackageRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e DeletePackageRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e DeletePackageRequestValidationError) ErrorName() string {
+	return "DeletePackageRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e DeletePackageRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sDeletePackageRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = DeletePackageRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = DeletePackageRequestValidationError{}
+
+// Validate checks the field values on DeletePackageResponse with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, an error is returned.
+func (m *DeletePackageResponse) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	// no validation rules for Completed
+
+	return nil
+}
+
+// DeletePackageResponseValidationError is the validation error returned by
+// DeletePackageResponse.Validate if the designated constraints aren't met.
+type DeletePackageResponseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e DeletePackageResponseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e DeletePackageResponseValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e DeletePackageResponseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e DeletePackageResponseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e DeletePackageResponseValidationError) ErrorName() string {
+	return "DeletePackageResponseValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e DeletePackageResponseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sDeletePackageResponse.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = DeletePackageResponseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = DeletePackageResponseValidationError{}

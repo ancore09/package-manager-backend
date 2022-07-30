@@ -48,6 +48,38 @@
         ]
       }
     },
+    "/ancore09.package_manager_backend.package_service.PackageService/DeletePackage": {
+      "post": {
+        "operationId": "PackageService_DeletePackage",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/package_serviceDeletePackageResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/package_serviceDeletePackageRequest"
+            }
+          }
+        ],
+        "tags": [
+          "PackageService"
+        ]
+      }
+    },
     "/ancore09.package_manager_backend.package_service.PackageService/GetPackageByName": {
       "post": {
         "operationId": "PackageService_GetPackageByName",
@@ -159,6 +191,23 @@
       "properties": {
         "package": {
           "$ref": "#/definitions/package_servicePackage"
+        }
+      }
+    },
+    "package_serviceDeletePackageRequest": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "uint64"
+        }
+      }
+    },
+    "package_serviceDeletePackageResponse": {
+      "type": "object",
+      "properties": {
+        "completed": {
+          "type": "boolean"
         }
       }
     },

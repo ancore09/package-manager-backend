@@ -44,9 +44,18 @@ message UpdatePackageResponse {
   Package package = 1;
 }
 
+message DeletePackageRequest {
+  uint64 id = 1;
+}
+
+message DeletePackageResponse {
+  bool completed = 1;
+}
+
 service PackageService {
   rpc GetPackageByName (GetPackageByNameRequest) returns (GetPackageByNameResponse);
   rpc GetPackages (GetPackagesRequest) returns (GetPackagesResponse);
   rpc CreatePackage (CreatePackageRequest) returns (CreatePackageResponse);
   rpc UpdatePackage (UpdatePackageRequest) returns (UpdatePackageResponse);
+  rpc DeletePackage (DeletePackageRequest) returns (DeletePackageResponse);
 }

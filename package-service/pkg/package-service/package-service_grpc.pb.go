@@ -22,6 +22,7 @@ type PackageServiceClient interface {
 	GetPackages(ctx context.Context, in *GetPackagesRequest, opts ...grpc.CallOption) (*GetPackagesResponse, error)
 	CreatePackage(ctx context.Context, in *CreatePackageRequest, opts ...grpc.CallOption) (*CreatePackageResponse, error)
 	UpdatePackage(ctx context.Context, in *UpdatePackageRequest, opts ...grpc.CallOption) (*UpdatePackageResponse, error)
+	DeletePackage(ctx context.Context, in *DeletePackageRequest, opts ...grpc.CallOption) (*DeletePackageResponse, error)
 }
 
 type packageServiceClient struct {
@@ -68,6 +69,15 @@ func (c *packageServiceClient) UpdatePackage(ctx context.Context, in *UpdatePack
 	return out, nil
 }
 
+func (c *packageServiceClient) DeletePackage(ctx context.Context, in *DeletePackageRequest, opts ...grpc.CallOption) (*DeletePackageResponse, error) {
+	out := new(DeletePackageResponse)
+	err := c.cc.Invoke(ctx, "/ancore09.package_manager_backend.package_service.PackageService/DeletePackage", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // PackageServiceServer is the server API for PackageService service.
 // All implementations must embed UnimplementedPackageServiceServer
 // for forward compatibility
@@ -76,6 +86,7 @@ type PackageServiceServer interface {
 	GetPackages(context.Context, *GetPackagesRequest) (*GetPackagesResponse, error)
 	CreatePackage(context.Context, *CreatePackageRequest) (*CreatePackageResponse, error)
 	UpdatePackage(context.Context, *UpdatePackageRequest) (*UpdatePackageResponse, error)
+	DeletePackage(context.Context, *DeletePackageRequest) (*DeletePackageResponse, error)
 	mustEmbedUnimplementedPackageServiceServer()
 }
 
@@ -94,6 +105,9 @@ func (UnimplementedPackageServiceServer) CreatePackage(context.Context, *CreateP
 }
 func (UnimplementedPackageServiceServer) UpdatePackage(context.Context, *UpdatePackageRequest) (*UpdatePackageResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdatePackage not implemented")
+}
+func (UnimplementedPackageServiceServer) DeletePackage(context.Context, *DeletePackageRequest) (*DeletePackageResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DeletePackage not implemented")
 }
 func (UnimplementedPackageServiceServer) mustEmbedUnimplementedPackageServiceServer() {}
 
@@ -180,6 +194,24 @@ func _PackageService_UpdatePackage_Handler(srv interface{}, ctx context.Context,
 	return interceptor(ctx, in, info, handler)
 }
 
+func _PackageService_DeletePackage_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DeletePackageRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PackageServiceServer).DeletePackage(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/ancore09.package_manager_backend.package_service.PackageService/DeletePackage",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PackageServiceServer).DeletePackage(ctx, req.(*DeletePackageRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // PackageService_ServiceDesc is the grpc.ServiceDesc for PackageService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -202,6 +234,10 @@ var PackageService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "UpdatePackage",
 			Handler:    _PackageService_UpdatePackage_Handler,
+		},
+		{
+			MethodName: "DeletePackage",
+			Handler:    _PackageService_DeletePackage_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
